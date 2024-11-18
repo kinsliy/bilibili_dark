@@ -1,0 +1,128 @@
+/* Bilibili 深色模式样式 */
+.bilibili-dark-mode {
+  /* 主要颜色变量 - 采用柔和的深色调色板 */
+  --dark-bg: #1a1b1e;  /* 更深的背景色，减少蓝色调 */
+  --dark-bg-secondary: #2a2b2f;  /* 次要背景色，用于卡片和容器 */
+  --dark-bg-hover: #2f3136;  /* hover 状态的背景色 */
+  --dark-text: #e3e5e8;  /* 主要文字颜色，不使用纯白色 */
+  --dark-text-secondary: #9699a1;  /* 次要文字颜色 */
+  --dark-border: rgba(78, 80, 88, 0.3);  /* 主要边框颜色 */
+  --dark-border-hover: rgba(78, 80, 88, 0.5);  /* hover 状态的边框颜色 */
+  --dark-link: #7bb5e3;  /* 链接颜色，使用更柔和的蓝色 */
+  --dark-divider: rgba(78, 80, 88, 0.2);  /* 分割线颜色 */
+  
+  /* 功能性颜色 */
+  --dark-primary: #7bb5e3;  /* 主要按钮颜色 */
+  --dark-success: #7fc69c;  /* 成功状态颜色 */
+  --dark-warning: #e6b088;  /* 警告状态颜色 */
+  --dark-error: #e69898;  /* 错误状态颜色 */
+}
+
+/* 基础样式 */
+.bilibili-dark-mode {
+  background-color: var(--dark-bg) !important;
+  color: var(--dark-text) !important;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s !important;
+}
+
+/* 边框处理 */
+.bilibili-dark-mode *[style*="border"] {
+  border-color: var(--dark-border) !important;
+  transition: border-color 0.3s !important;
+}
+
+/* Hover 状态处理 - 排除图片和视频 */
+.bilibili-dark-mode *:not(img):not(video):not([class*="cover"]):hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* 卡片和容器样式 */
+.bilibili-dark-mode .bili-video-card,
+.bilibili-dark-mode .bili-dyn-item,
+.bilibili-dark-mode .bili-dyn-card-container,
+.bilibili-dark-mode [class*="card"],
+.bilibili-dark-mode [class*="container"] {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 卡片 hover 效果 */
+.bilibili-dark-mode .bili-video-card:hover,
+.bilibili-dark-mode .bili-dyn-item:hover,
+.bilibili-dark-mode [class*="card"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--dark-border-hover) !important;
+}
+
+/* 骨架屏样式 */
+.bilibili-dark-mode [class*="skeleton"],
+.bilibili-dark-mode [class*="loading"],
+.bilibili-dark-mode .bili-skeleton {
+  background: var(--dark-bg-secondary) !important;
+  background-image: linear-gradient(
+    90deg,
+    var(--dark-bg-secondary) 25%,
+    var(--dark-bg-hover) 37%,
+    var(--dark-bg-secondary) 63%
+  ) !important;
+  background-size: 400% 100% !important;
+  animation: skeleton-loading 1.4s ease infinite !important;
+}
+
+/* 输入框样式 */
+.bilibili-dark-mode input,
+.bilibili-dark-mode textarea {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text) !important;
+  border-color: var(--dark-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+.bilibili-dark-mode input:focus,
+.bilibili-dark-mode textarea:focus {
+  border-color: var(--dark-primary) !important;
+  box-shadow: 0 0 0 2px rgba(123, 181, 227, 0.2) !important;
+}
+
+/* 按钮样式 */
+.bilibili-dark-mode .primary-btn {
+  background-color: var(--dark-primary) !important;
+  color: var(--dark-bg) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.bilibili-dark-mode .primary-btn:hover {
+  background-color: var(--dark-link) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 链接样式 */
+.bilibili-dark-mode a {
+  color: var(--dark-link) !important;
+  transition: all 0.3s ease !important;
+}
+
+.bilibili-dark-mode a:hover {
+  color: var(--dark-primary) !important;
+  background-color: transparent !important;
+  text-decoration: underline !important;
+}
+
+/* 移除特定背景 */
+.bilibili-dark-mode .bg[style*="background-image"] {
+  background-image: none !important;
+}
+
+/* 动画 */
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

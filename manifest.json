@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Bilibili Dark Mode",
+  "version": "1.0",
+  "description": "为 Bilibili 网站添加智能深色模式",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.bilibili.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.bilibili.com/*"],
+      "css": ["styles/dark-mode.css"],
+      "js": ["scripts/content.js"]
+    }
+  ]
+}
